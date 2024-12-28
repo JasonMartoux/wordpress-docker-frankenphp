@@ -1,12 +1,12 @@
 services:
 
   wordpress:
-    image: stephenmiracle/frankenwp:latest
+    build: .
     restart: always
     ports:
-      - "8094:80" # HTTP
+      - "8095:80" # HTTP
       # - "80:80" # HTTP
-      # - "443:443" # HTTPS
+      #- "443:443" # HTTPS
       # - "443:443/udp" # HTTP/3
     environment:
       SERVER_NAME: ${SERVER_NAME:-:80}
@@ -25,7 +25,6 @@ services:
       # WORDPRESS_CONFIG_EXTRA: |
       #     define('WP_SITEURL', '');
       #     define('WP_HOME', '');
-          
     volumes:
       - ./wp-content:/var/www/html/wp-content
 
